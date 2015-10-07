@@ -113,6 +113,7 @@ class RedactorUpdateController extends Controller
             }
             if ($zip->extractTo($extractDir) !== true) {
                 $this->stdout('Error extracting file ' . $pluginName . '.zip' . PHP_EOL);
+                $zip->close();
                 continue;
             }
             $zip->close();
